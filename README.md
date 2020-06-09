@@ -6,3 +6,12 @@
 ## Shell scripting
 
 > Created a ```.sh``` script to automate the process.
+
+### Running the script
+
+```bash
+$ git clone https://github.com/vinamramunot-tech/CS331_TA_scripts.git
+$ cd TA_scripts
+$ vim student_list.txt (to edit list)
+$ chmod +x makingFiles.sh (to give permission for execution)
+```
