@@ -2,15 +2,18 @@
 
 GITHUB_USERNAME_LIST="student_github.txt"
 OUTPUT="output.txt"
+MAIN_DIR="/Users/vinamramunot/OneDrive - Purdue University Fort Wayne/Fall2020/CS232-Unix/student_repo"
+
+cd "${MAIN_DIR}"
 
 
-cd ../../student_repo
-
-
-while read line; 
+while read line 
 do
+
     for username in $line
     do
+        sleep 1
+        echo -e "first for loop \n`ls`"
         cd ${username}_Homework_CS232
         if [ $? = 0 ]
         then
@@ -22,7 +25,7 @@ do
         then
             cd hw1
             
-            gcc -Wall -Werror -o helloCS232 helloCS232.c
+            gcc -o helloCS232 helloCS232.c -Wall -Werror
 
             if [ $? != 0 ]
             then                                                                
@@ -42,7 +45,8 @@ do
         else
             echo -e "hw1 doesn't exist!" > hw1_result.txt
         fi
-        cd ../..
+        cd "${MAIN_DIR}"
+        echo -e "\nthis is after going out... `pwd`\n"
     done
 done < "$GITHUB_USERNAME_LIST"
 
