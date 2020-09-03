@@ -7,7 +7,8 @@
 
 > Created a ```.sh``` script to automate the process.
 
-### Running the script
+### C++
+#### Running the script
 
 ```bash
 $ git clone https://github.com/vinamramunot-tech/TA_scripts.git
@@ -15,3 +16,7 @@ $ cd TA_scripts
 $ vim student_list.txt (to edit list)
 $ chmod +x makingFiles.sh (to give permission for execution)
 ```
+
+### C and Unix
+#### Running the scripts
+
