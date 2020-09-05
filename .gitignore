@@ -1,8 +1,9 @@
 # file with student github username
-student_github.txt
+# student_github.txt
 
 # err output file for the repo that couldn't be cloned
 clone_err.txt
 
 #student repos
 *_Homework_*
+
