@@ -2,13 +2,16 @@
 
 GITHUB_USERNAME_LIST="student_github.txt"
 COURSE_NAME="CS232"
+OUTPUT="output.txt"
 CLONE_ERR="clone_err.txt"
 STUDENT_DIR="student_repo"
 FILE_EXISTING=0
 FILE_COMPILED=0
 FILE_RUN=0
+HW1_RESULT="hw1_result.txt"
 
 cd ${STUDENT_DIR}
+echo "" > ${HW1_RESULT}
 cat "$GITHUB_USERNAME_LIST" | while read line 
 do
     echo $line | while read -a wordarray
@@ -29,19 +32,21 @@ do
                     ./helloCS232 > "${OUTPUT}"
                     if [ -s "${OUTPUT}" ] 
                     then
-                        (( FILE_RUN = 1 ))        
+                        (( FILE_RUN = 1 ))
+                        rm ${OUTPUT}
                     else
                         (( FILE_RUN = 0 ))        
                     fi
                 fi
+                rm helloCS232
             else
-                (( FILE_EXISTING = 0 )) 
-                
-            fi
-
-            echo 
-            
+                (( FILE_EXISTING = 0 ))             
+            fi        
         fi
         cd ../..
+        echo "${wordarray[0]}" >> ${HW1_RESULT}
+        echo -e "file_existing\tfile_compiled\tfile_run" >> ${HW1_RESULT}
+        echo -e "\t  ${FILE_EXISTING} \t\t\t\t${FILE_COMPILED}\t\t\t${FILE_RUN}" >> ${HW1_RESULT}
+            
     done 
 done
