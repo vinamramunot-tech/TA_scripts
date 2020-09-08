@@ -4,19 +4,9 @@ GITHUB_USERNAME_LIST="student_github.txt"
 COURSE_NAME="CS232"
 CLONE_ERR="clone_err.txt"
 STUDENT_DIR="student_repo"
-declare -i FILE_EXISTING=0
-declare -i ILE_COMPILED=0
-declare -i FILE_RUN=0
-
-# this is to check whether the student directory exists or not
-if [ -d "${MAIN_DIR}" ]
-then
-    cd "${STUDENT_DIR}"
-else
-    mkdir student_repo
-fi
-
-clear
+FILE_EXISTING=0
+FILE_COMPILED=0
+FILE_RUN=0
 
 cd ${STUDENT_DIR}
 cat "$GITHUB_USERNAME_LIST" | while read line 
@@ -25,30 +15,33 @@ do
     do
         if [ -d "${wordarray[0]}_Homework_${COURSE_NAME}" ]
         then
+            cd "${wordarray[0]}_Homework_${COURSE_NAME}"
             if [ -d "hw1" ]
             then
+                (( FILE_EXISTING = 1 ))
                 cd hw1
-                gcc -o helloCS232 helloCS232.c -Wall -Werror
+                gcc -o helloCS232 helloCS232.c -Wall -Werror 2> /dev/null
                 if [ $? != 0 ]
-                then                                                                
+                then                                                     
                     (( FILE_COMPILED = 0 ))
-                    echo $FILE_COMPILED
-                fi
-                ./helloCS232 > "${OUTPUT}"
-                if [ -s "${OUTPUT}" ] 
-                then
-                    (( FILE_RUN = 1 ))
-                    echo $FILE_RUN
                 else
-                    (( FILE_RUN = 0 ))
-                    echo $FILE_RUN
+                    (( FILE_COMPILED = 1 ))
+                    ./helloCS232 > "${OUTPUT}"
+                    if [ -s "${OUTPUT}" ] 
+                    then
+                        (( FILE_RUN = 1 ))        
+                    else
+                        (( FILE_RUN = 0 ))        
+                    fi
                 fi
             else
                 (( FILE_EXISTING = 0 )) 
-                echo $FILE_EXISTING
+                
             fi
-        else
-            2> /dev/null
+
+            echo 
+            
         fi
+        cd ../..
     done 
 done
