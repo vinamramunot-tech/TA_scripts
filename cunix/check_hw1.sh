@@ -16,6 +16,9 @@ cat "$GITHUB_USERNAME_LIST" | while read line
 do
     echo $line | while read -a wordarray
     do
+        (( FILE_EXISTING = 0 ))
+        (( FILE_COMPILED = 0 ))
+        (( FILE_RUN = 0 ))
         if [ -d "${wordarray[0]}_Homework_${COURSE_NAME}" ]
         then
             cd "${wordarray[0]}_Homework_${COURSE_NAME}"
