@@ -15,6 +15,17 @@ fi
 
 clear
 
+# creates the error file if it doesn't
+if [ ! -f "${STUDENT_DIR}/${CLONE_ERR}" ]
+then
+    touch "${STUDENT_DIR}/${CLONE_ERR}"
+fi
+
+clear
+
+echo "" > "${STUDENT_DIR}/${CLONE_ERR}"
+
+
 cd ${STUDENT_DIR}
 cat "$GITHUB_USERNAME_LIST" | while read line 
 do
@@ -30,5 +41,6 @@ do
                 echo ${wordarray[0]} >> ${CLONE_ERR}
             fi
         fi
+        sleep 1
     done 
 done
