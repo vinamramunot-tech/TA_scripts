@@ -23,7 +23,7 @@ cat "$GITHUB_USERNAME_LIST" | while read line
 do
     echo $line | while read -a wordarray
     do
-        if [ ! -d "${wordarray[0]}_Homework_${COURSE_NAME}" ]
+        if [ -d "${wordarray[0]}_Homework_${COURSE_NAME}" ]
         then
             if [ -d "hw1" ]
             then
@@ -32,17 +32,23 @@ do
                 if [ $? != 0 ]
                 then                                                                
                     (( $FILE_COMPILED = 0 ))
+                    echo $FILE_COMPILED
                 fi
                 ./helloCS232 > "${OUTPUT}"
                 if [ -s "${OUTPUT}" ] 
                 then
                     (( $FILE_RUN = 1 ))
+                    echo $FILE_RUN
                 else
                     (( $FILE_RUN = 0 ))
+                    echo $FILE_RUN
                 fi
             else
-                
+                (( $FILE_EXISTING = 0 )) 
+                echo $FILE_EXISTING
             fi
+        else
+            2> /dev/null
         fi
     done 
 done
