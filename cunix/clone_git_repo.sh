@@ -6,7 +6,7 @@ CLONE_ERR="clone_err.txt"
 STUDENT_DIR="student_repo"
 
 # this is to check whether the student directory exists or not
-if [ -d "${MAIN_DIR}" ]
+if [ -d "${STUDENT_DIR}" ]
 then
     cd "${STUDENT_DIR}"
 else
