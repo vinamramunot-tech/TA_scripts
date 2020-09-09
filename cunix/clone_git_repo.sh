@@ -4,16 +4,12 @@ GITHUB_USERNAME_LIST="student_github.txt"
 COURSE_NAME="CS232"
 CLONE_ERR="clone_err.txt"
 STUDENT_DIR="student_repo"
+COUNT=0
 
 # this is to check whether the student directory exists or not
-if [ -d "${STUDENT_DIR}" ]
-then
-    cd "${STUDENT_DIR}"
-else
-    mkdir student_repo
-fi
+mkdir student_repo 2> /dev/null
 
-clear
+# clear
 
 echo "" > "${STUDENT_DIR}/${CLONE_ERR}"
 
@@ -29,6 +25,7 @@ do
             if [ $? == 0 ]
             then
                 mv Homework_${COURSE_NAME} ${wordarray[0]}_Homework_${COURSE_NAME}
+                (( COUNT += 1 ))
             else
                 echo ${wordarray[0]} >> ${CLONE_ERR}
             fi
@@ -36,3 +33,5 @@ do
         sleep 1
     done 
 done
+
+echo "Total number of students cloned: ${COUNT}"
