@@ -44,12 +44,11 @@ do
                 rm helloCS232
             else
                 (( FILE_EXISTING = 0 ))             
-            fi        
+            fi
         fi
         cd ../..
         echo "${wordarray[0]}" >> ${HW1_RESULT}
-        echo -e "file_existing\tfile_compiled\tfile_run" >> ${HW1_RESULT}
-        echo -e "\t  ${FILE_EXISTING} \t\t\t\t${FILE_COMPILED}\t\t\t${FILE_RUN}" >> ${HW1_RESULT}
-            
+        echo -e "\t\tfile_existing\tfile_compiled\tfile_run" >> ${HW1_RESULT}
+        echo -e "\t\t\t  ${FILE_EXISTING} \t\t\t\t${FILE_COMPILED}\t\t\t${FILE_RUN}" >> ${HW1_RESULT}
     done 
 done

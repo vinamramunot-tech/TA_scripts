@@ -14,7 +14,7 @@ Donaldo_Cruz https://github.com/DonaldoCruz/Homework_CS232.git
 Logan_Luffman https://github.com/LoganLuffman/Homework_CS232.git
 Andriamanjaka_Ralambomanarivo https://github.com/ralaa01/Homework_CS232.git
 Shravan_Komarabattini https://github.com/Shravankb301/Homework_CS232.git
-Tyler_Cerezo https://github.com/TylerCerezo1/-Homework_CS2.git
+Tyler_Cerezo https://github.com/TylerCerezo1/Homework_CS232.git
 Elijah_Mangal https://github.com/mangev01/Homework_CS232.git
 Jeremiah_Richardson https://github.com/jeremiahdr12/Homework_CS232.git
 Kayleb_Redner https://github.com/kaylebredner/Homework_CS232.git
@@ -32,4 +32,3 @@ Hunter_Norris https://github.com/NorrisHunter/Homework_CS232.git
 Griffin_Knipscheer https://github.com/knipgm/Homework_CS232.git
 Harley_Stroud https://github.com/HarleyStroud/Homework_CS232.git
 David_Green https://github.com/davidgreen29/Homework_CS232.git
-
