@@ -28,20 +28,16 @@ do
         (( TEST_PASSED=0 ))
         if [ -d "${wordarray[0]}_Homework_${COURSE_NAME}" ]
         then
-            echo "${wordarray[0]}"
             cd "${wordarray[0]}_Homework_${COURSE_NAME}"
             if [ -d "hw2" ]
             then
-                
                 (( HOMEWORK_FOLDER_EXISTING=1 ))
                 cd hw2
                 cp "../../../hw2_scripts/${OUTPUT_CHECK}" "../../../hw2_scripts/${TEST_SCRIPT}" "../../../hw2_scripts/${EXPECTED_OUTPUT}" .
                 if [ -f primes.c ]
                 then
                     (( PRIMES_FILE_EXISTING=1 ))
-                    
                     gcc -o primes primes.c -Wall -Werror -lm -std=c99 2> /dev/null
-                    echo "$?"
                     if [ $? != 0 ]
                     then                                                     
                         (( PRIMES_FILE_COMPILED=0 ))
