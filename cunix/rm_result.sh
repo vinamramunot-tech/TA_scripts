@@ -3,7 +3,6 @@
 GITHUB_USERNAME_LIST="student_github.txt"
 COURSE_NAME="CS232"
 STUDENT_DIR="student_repo"
-HW1_RESULT="hw1_result.txt"
 
 cd ${STUDENT_DIR}
 cat "$GITHUB_USERNAME_LIST" | while read line 
@@ -13,12 +12,20 @@ do
         if [ -d "${wordarray[0]}_Homework_${COURSE_NAME}" ]
         then
             cd "${wordarray[0]}_Homework_${COURSE_NAME}"
-            if [ -d "hw1" ]
+            if [ -d "hw2" ]
             then
-                cd hw1
-                rm hw1_result.txt           
+                cd hw2
+                rm hw1_result.txt 2> /dev/null
+                rm hw2_result.txt 2> /dev/null
+                rm expectedOutput.txt 2> /dev/null
+                rm primesCheckOutput 2> /dev/null
+                rm runSimpleTests.sh 2> /dev/null
+                rm output.txt 2> /dev/null
+                rm -R -f primes.dSYM 2> /dev/null
+                rm primes 2> /dev/null
+                cd ../../
             fi
+            cd ..
         fi
-        cd ../..
     done 
 done

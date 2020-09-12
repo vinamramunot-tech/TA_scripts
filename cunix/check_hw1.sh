@@ -11,7 +11,7 @@ FILE_RUN=0
 HW1_RESULT="hw1_result.txt"
 
 cd ${STUDENT_DIR}
-echo "" > ${HW1_RESULT}
+echo > ${HW1_RESULT}
 cat "$GITHUB_USERNAME_LIST" | while read line 
 do
     echo $line | while read -a wordarray
@@ -42,11 +42,13 @@ do
                     fi
                 fi
                 rm helloCS232
+                cd ../..
             else
-                (( FILE_EXISTING = 0 ))             
+                (( FILE_EXISTING = 0 ))     
+                cd ..        
             fi
         fi
-        cd ../..
+        
         echo "${wordarray[0]}" >> ${HW1_RESULT}
         echo -e "\t\tfile_existing\tfile_compiled\tfile_run" >> ${HW1_RESULT}
         echo -e "\t\t\t  ${FILE_EXISTING} \t\t\t\t${FILE_COMPILED}\t\t\t${FILE_RUN}" >> ${HW1_RESULT}

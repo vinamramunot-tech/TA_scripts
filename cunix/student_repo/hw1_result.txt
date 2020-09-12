@@ -53,9 +53,6 @@ Tyler_Cerezo
 Elijah_Mangal
 		file_existing	file_compiled	file_run
 			  1 				1			1
-Jeremiah_Richardson
-		file_existing	file_compiled	file_run
-			  1 				1			1
 Kayleb_Redner
 		file_existing	file_compiled	file_run
 			  1 				1			1

@@ -1,6 +1,6 @@
 Omer_Yurdabakan https://github.com/omeryurd/Homework_CS232.git
-Conner_Duling https://github.com/ConnerDuling/Homework_CS232.git 
-Kashyab_Ambarani https://github.com/kashyab12/Homework_CS232.git 
+Conner_Duling https://github.com/ConnerDuling/Homework_CS232.git
+Kashyab_Ambarani https://github.com/kashyab12/Homework_CS232.git
 William_McCarthy https://github.com/cjb574/Homework_CS232.git
 Shivansh_Sharma https://github.com/Shivansh181/homework_CS232.git
 Tarun_Jeevan https://github.com/tarunJeevan/Homework_CS232.git
