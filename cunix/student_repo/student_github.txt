@@ -4,8 +4,8 @@ Kashyab_Ambarani https://github.com/kashyab12/Homework_CS232.git
 William_McCarthy https://github.com/cjb574/Homework_CS232.git
 Shivansh_Sharma https://github.com/Shivansh181/homework_CS232.git
 Tarun_Jeevan https://github.com/tarunJeevan/Homework_CS232.git
-DeAyshia_Sinclair https://github.com/Sinclair198/Homework_CS232.git
 Devyn_Frantz https://github.com/yukinetheshinki/Homework_CS232.git
+DeAyshia_Sinclair https://github.com/Sinclair198/Homework_CS232.git
 Adam_DeWitt https://github.com/amdewitt/Homework_CS232.git
 Narcis_Sprecic https://github.com/narcis-SE/Homework_CS232.git
 Jade_Hendry https://github.com/JadeHendry/Homework_CS232.git
