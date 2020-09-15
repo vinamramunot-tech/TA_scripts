@@ -33,9 +33,11 @@ do
             then
                 (( HOMEWORK_FOLDER_EXISTING=1 ))
                 cd hw2
-                cp "../../../hw2_scripts/${OUTPUT_CHECK}" "../../../hw2_scripts/${TEST_SCRIPT}" "../../../hw2_scripts/${EXPECTED_OUTPUT}" .
+                # cp "../../../hw2_scripts/${OUTPUT_CHECK}" "../../../hw2_scripts/${TEST_SCRIPT}" "../../../hw2_scripts/${EXPECTED_OUTPUT}" .
+                
                 if [ -f primes.c ]
                 then
+                    cp primes.c ../../../hw2_scripts/
                     (( PRIMES_FILE_EXISTING=1 ))
                     gcc -o primes primes.c -Wall -Werror -lm -std=c99 2> /dev/null
                     if [ $? != 0 ]
