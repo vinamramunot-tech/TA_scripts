@@ -33,13 +33,15 @@ do
             if [ $? == 0 ]
             then
                 (( PRIMES_FILE_COMPILED = 1 ))
-                ./runSimpleTests.sh > "${OUTPUT}"   
+                
+                ./runSimpleTests.sh > "../${STUDENT_DIR}/${wordarray[0]}_Homework_${COURSE_NAME}/hw2/${OUTPUT}" 2>&1
                 if [ $? == 0 ]
                 then        
-                    (( PRIMES_FILE_RUN = 1 ))     
+                    (( PRIMES_FILE_RUN = 1 ))
                     while read tests
                     do
                         case $tests in
+                            
                             "Tests successfully passed for bounds 1, 1")
                                 TEST_SCORE=$(( TEST_SCORE + 10 ))
                                 ;;
@@ -76,18 +78,18 @@ do
                             *)
                                 ;;
                         esac
-                    done < "${OUTPUT}"
+                    done < "../${STUDENT_DIR}/${wordarray[0]}_Homework_${COURSE_NAME}/hw2/${OUTPUT}"
                 fi
             fi
             rm -R -f primes.dSYM
             rm primes.c 2> /dev/null
-            rm output.txt
-            rm primes
+            # rm "../${STUDENT_DIR}/${wordarray[0]}_Homework_${COURSE_NAME}/hw2/${OUTPUT}"
+            rm primes 2> /dev/null
             cd "../${STUDENT_DIR}"
         fi
         echo "${wordarray[0]}" >> ${HW2_RESULT}
         echo -e "\t\tprimes_file_existing\tprimes_file_compiled\tprimes_file_run\ttests_score" >> ${HW2_RESULT}
         echo -e "\t\t\t\t${PRIMES_FILE_EXISTING}\t\t\t\t\t\t\t${PRIMES_FILE_COMPILED}\t\t\t\t\t${PRIMES_FILE_RUN}\t\t\t\t${TEST_SCORE}" >> ${HW2_RESULT}
-
+        
     done
 done
