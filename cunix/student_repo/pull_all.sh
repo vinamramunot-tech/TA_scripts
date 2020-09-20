@@ -4,6 +4,16 @@ GITHUB_USERNAME_LIST="student_github.txt"
 COURSE_NAME="CS232"
 PULL_ERR="pull_err.txt"
 
+function createPullError(){
+    if [ -f "$PULL_ERR" ]
+    then
+        rm -f "$PULL_ERR"
+        touch "$PULL_ERR"
+    else
+        touch "$PULL_ERR"
+    fi
+}
+
 createPullError
 
 cat "$GITHUB_USERNAME_LIST" | while read line 
@@ -29,12 +39,3 @@ done
 
 
 
-function createPullError(){
-    if [ -f "$PULL_ERR" ]
-    then
-        rm -f "$PULL_ERR"
-        touch "$PULL_ERR"
-    else
-        touch "$PULL_ERR"
-    fi
-}

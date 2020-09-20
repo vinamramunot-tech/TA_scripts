@@ -3,17 +3,19 @@
 GITHUB_USERNAME_LIST="student_github.txt"
 COURSE_NAME="CS232"
 CLONE_ERR="clone_err.txt"
-STUDENT_DIR="student_repo"
 
-# this is to check whether the student directory exists or not
-mkdir student_repo 2> /dev/null
+function createCloneError(){
+    if [ -f "$CLONE_ERR" ]
+    then
+        rm -f "$CLONE_ERR"
+        touch "$CLONE_ERR"
+    else
+        touch "$CLONE_ERR"
+    fi
+}
 
-# clear
+createCloneError
 
-echo "" > "${STUDENT_DIR}/${CLONE_ERR}"
-
-
-cd ${STUDENT_DIR}
 cat "$GITHUB_USERNAME_LIST" | while read line 
 do
     echo $line | while read -a wordarray
