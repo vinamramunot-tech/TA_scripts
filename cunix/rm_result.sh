@@ -15,12 +15,10 @@ do
             if [ -d "hw2" ]
             then
                 cd hw2
-                rm hw1_result.txt 2> /dev/null
                 rm hw2_result.txt 2> /dev/null
                 rm expectedOutput.txt 2> /dev/null
                 rm primesCheckOutput 2> /dev/null
                 rm runSimpleTests.sh 2> /dev/null
-                rm output.txt 2> /dev/null
                 rm -R -f primes.dSYM 2> /dev/null
                 rm primes 2> /dev/null
                 cd ../../
