@@ -2,7 +2,7 @@
 
 GITHUB_USERNAME_LIST="student_github.txt"
 COURSE_NAME="CS232"
-CLONE_ERR="clone_err.txt"
+CLONE_ERR="error_files/clone_err.txt"
 
 function createCloneError(){
     if [ -f "$CLONE_ERR" ]
@@ -14,6 +14,20 @@ function createCloneError(){
     fi
 }
 
+function loading() {
+    pid=$! # Process Id of the previous running command
+
+    spin='-\|/'
+
+    i=0
+    while kill -0 $pid 2>/dev/null
+    do
+    i=$(( (i+1) %4 ))
+    printf "\r${spin:$i:1}"
+    sleep .1
+    done
+}
+
 createCloneError
 
 cat "$GITHUB_USERNAME_LIST" | while read line 
@@ -22,7 +36,8 @@ do
     do
         if [ ! -d "${wordarray[0]}_Homework_${COURSE_NAME}" ]
         then
-            git clone ${wordarray[1]} 2> /dev/null
+            echo "Cloning ${wordarray[0]}..."
+            git clone ${wordarray[1]} 2> /dev/null & loading
             if [ $? == 0 ]
             then
                 mv Homework_${COURSE_NAME} ${wordarray[0]}_Homework_${COURSE_NAME}
@@ -30,6 +45,5 @@ do
                 echo ${wordarray[0]} >> ${CLONE_ERR}
             fi
         fi
-        sleep 1
     done 
 done
