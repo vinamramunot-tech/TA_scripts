@@ -1,8 +1,8 @@
 # file with student github username
 # student_github.txt
 
-# err output file for the repo that couldn't be cloned
-# clone_err.txt
+# err output folder
+cunix/student_repo/error_folder
 
 #student repos
 *_Homework_*
@@ -12,8 +12,7 @@ hw1_result.txt
 
 .DS_Store
 
+# homework scripts
 hw3.zip
-
-hw2_scripts
-
-hw3
+hw2_solution_scripts
+hw3_solution_scripts
