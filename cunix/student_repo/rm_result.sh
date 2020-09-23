@@ -19,6 +19,7 @@ do
                 rm log_3.txt 2> /dev/null
                 rm -R -f primes.dSYM 2> /dev/null
                 rm log_4.txt 2> /dev/null
+                rm log.txt 2> /dev/null
                 cd ..
             fi
             cd ..
