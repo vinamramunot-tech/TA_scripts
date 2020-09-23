@@ -27,7 +27,7 @@ function copyExpectedResult(){
 }
 
 function run3by3(){
-    ./fifteen 3 < 3x3.txt > /dev/null
+    ./fifteen 3 < 3x3.txt > /dev/null 
 }
 
 function run4by4(){
