@@ -56,6 +56,7 @@ do
         (( BOARD_FOUR = 0 ))
         if [ -d "${wordarray[0]}_Homework_${COURSE_NAME}" ]
         then
+            if [  ]
             cd "${wordarray[0]}_Homework_${COURSE_NAME}"
             if [ -d "hw3" ]
             then
