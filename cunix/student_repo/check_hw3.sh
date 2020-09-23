@@ -56,38 +56,40 @@ do
         (( BOARD_FOUR = 0 ))
         if [ -d "${wordarray[0]}_Homework_${COURSE_NAME}" ]
         then
-            if [  ]
-            cd "${wordarray[0]}_Homework_${COURSE_NAME}"
-            if [ -d "hw3" ]
+            if [ ! cmp -s "Hunter_Norris" "${wordarray[0]}" ]
             then
-                cd hw3
-                if [ -f "fifteen.c" ]
+                cd "${wordarray[0]}_Homework_${COURSE_NAME}"
+                if [ -d "hw3" ]
                 then
-                    (( FILE_EXISTING = 1 ))
-                    gcc -o fifteen fifteen.c -Wall -Werror -lm 2> /dev/null
-                    if [ $? == 0 ]
+                    cd hw3
+                    if [ -f "fifteen.c" ]
                     then
-                        (( FILE_COMPILED = 1 ))
-                        copyExpectedResult
-
-                        run3by3
-                        if cmp -s "log_3.txt" "log.txt"
+                        (( FILE_EXISTING = 1 ))
+                        gcc -o fifteen fifteen.c -Wall -Werror -lm 2> /dev/null
+                        if [ $? == 0 ]
                         then
-                            (( BOARD_THREE = 1 ))
-                        fi    
+                            (( FILE_COMPILED = 1 ))
+                            copyExpectedResult
 
-                        run4by4
-                        if cmp -s "log_4.txt" "log.txt"
-                        then
-                            (( BOARD_FOUR = 1 ))
+                            run3by3
+                            if cmp -s "log_3.txt" "log.txt"
+                            then
+                                (( BOARD_THREE = 1 ))
+                            fi    
+
+                            run4by4
+                            if cmp -s "log_4.txt" "log.txt"
+                            then
+                                (( BOARD_FOUR = 1 ))
+                            fi
+                            
+                            remove
                         fi
-                        
-                        remove
                     fi
+                    cd ..
                 fi
                 cd ..
-            fi
-            cd ..
+            fi 
         fi
         echo "${wordarray[0]}" >> ${HW3_RESULT}
         echo -e "\t\tfile_existing\tfile_compiled\t\t\tBoard 3\t\t\tBoard 4" >> ${HW3_RESULT}
