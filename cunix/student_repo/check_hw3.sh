@@ -72,20 +72,15 @@ do
                         run3by3
                         if cmp -s "log_3.txt" "log.txt"
                         then
-                            echo "3x3 are equal!"
                             (( BOARD_THREE = 1 ))
-                        else
-                            echo "3x3 are not equal!"
                         fi    
 
                         run4by4
                         if cmp -s "log_4.txt" "log.txt"
                         then
-                            echo "4x4 are equal!"
                             (( BOARD_FOUR = 1 ))
-                        else
-                            echo "4x4 are not equal!"
                         fi
+                        
                         remove
                     fi
                 fi
