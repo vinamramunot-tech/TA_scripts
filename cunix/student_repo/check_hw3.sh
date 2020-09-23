@@ -95,6 +95,6 @@ do
         fi
         echo "${wordarray[0]}" >> ${HW3_RESULT}
         echo -e "\t\tfile_existing\tfile_compiled\t\t\tBoard 3\t\t\tBoard 4" >> ${HW3_RESULT}
-        echo -e "\t\t\t  ${FILE_EXISTING} \t\t\t\t${FILE_COMPILED}\t\t\t${BOARD_THREE}\t\t\t${BOARD_FOUR}" >> ${HW3_RESULT}
+        echo -e "\t\t\t  ${FILE_EXISTING} \t\t\t\t${FILE_COMPILED}\t\t\t\t\t${BOARD_THREE}\t\t\t\t${BOARD_FOUR}" >> ${HW3_RESULT}
     done
 done
