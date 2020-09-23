@@ -56,7 +56,7 @@ do
         (( BOARD_FOUR = 0 ))
         if [ -d "${wordarray[0]}_Homework_${COURSE_NAME}" ]
         then
-            if [ ! cmp -s "Hunter_Norris" "${wordarray[0]}" ]
+            if [ ! "Hunter_Norris" = "${wordarray[0]}" ]
             then
                 cd "${wordarray[0]}_Homework_${COURSE_NAME}"
                 if [ -d "hw3" ]
