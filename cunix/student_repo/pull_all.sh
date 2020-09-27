@@ -24,7 +24,7 @@ do
         then
             cd "${wordarray[0]}_Homework_${COURSE_NAME}"
             git config --local credential.helper store
-            git pull 1> /dev/null 2>&1 /dev/null
+            git pull 1> /dev/null 2>&1
             cd ..
         else
             echo "${wordarray[0]}_Homework_${COURSE_NAME}" >> ${PULL_ERR}
