@@ -1,14 +1,5 @@
-# file with student github username
-# student_github.txt
-
-#student repos
-*_Homework_*
-
-.DS_Store
-
-# homework scripts
 hw3.zip
-hw2_solution_scripts
-hw3_solution_scripts
+hw3_solution_script
 hw4_solution_scripts
-hw_results
+hw2_solution_scripts
+*_Homeowork_*
