@@ -22,12 +22,12 @@ $ chmod +x makingFiles.sh (to give permission for execution)
 
 # Cleaning Ignored Files
 ```markdown
-# Remove the files from the index (not the actual files in the working copy)
+<!-- Remove the files from the index (not the actual files in the working copy) -->
 $ git rm -r --cached .
 
-# Add these removals to the Staging Area...
+<!-- Add these removals to the Staging Area... -->
 $ git add .
 
-# ...and commit them!
+<!-- ...and commit them! -->
 $ git commit -m "Clean up ignored files"
 ```
