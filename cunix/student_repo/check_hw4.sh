@@ -16,10 +16,9 @@ function createHomeworkResult(){
     fi
 }
 
-# function copyTheBomb(){
-#     cp ../../../hw4_solution_scripts/theBomb .
-#     cp ../../../hw4_solution_scripts/expectedOutput.txt .
-# }
+function copyTheBomb(){
+    cp ../../../hw4_solution_scripts/theBomb .
+}
 
 # function remove(){
 #     rm theBomb > /dev/null
@@ -39,37 +38,38 @@ do
             if [ -d "hw4" ]
             then
                 cd hw4
-                while read -a ans
-                do
-                    case "${ans[0]}" in
-                        "Careful")
-                            TEST_SCORE=$(( TEST_SCORE + 10 ))
-                            ;;
-                        "76")
-                            TEST_SCORE=$(( TEST_SCORE + 10 ))
-                            ;;
-                        "jjja")
-                            TEST_SCORE=$(( TEST_SCORE + 10 ))
-                            ;;
-                        "37")
-                            TEST_SCORE=$(( TEST_SCORE + 10 ))
-                            ;;
-                        "3hhhhhhhhh")
-                            TEST_SCORE=$(( TEST_SCORE + 10 ))
-                            ;;
-                        "iiiiiiiii4")
-                            TEST_SCORE=$(( TEST_SCORE + 10 ))
-                            ;;
-                        "-20")
-                            TEST_SCORE=$(( TEST_SCORE + 10 ))
-                    esac
-                done < *.txt
+                copyTheBomb
+                # while read -a ans
+                # do
+                #     case "${ans[0]}" in
+                #         "Careful")
+                #             TEST_SCORE=$(( TEST_SCORE + 10 ))
+                #             ;;
+                #         "76")
+                #             TEST_SCORE=$(( TEST_SCORE + 10 ))
+                #             ;;
+                #         "jjja")
+                #             TEST_SCORE=$(( TEST_SCORE + 10 ))
+                #             ;;
+                #         "37")
+                #             TEST_SCORE=$(( TEST_SCORE + 10 ))
+                #             ;;
+                #         "3hhhhhhhhh")
+                #             TEST_SCORE=$(( TEST_SCORE + 10 ))
+                #             ;;
+                #         "iiiiiiiii4")
+                #             TEST_SCORE=$(( TEST_SCORE + 10 ))
+                #             ;;
+                #         "-20")
+                #             TEST_SCORE=$(( TEST_SCORE + 10 ))
+                #     esac
+                # done < *.txt
                 cd ..
             fi
             cd ..
         fi
-        echo "${wordarray[0]}" >> ${HW4_RESULT}
-        echo -e "\t\tscore: ${TEST_SCORE}" >> ${HW4_RESULT}
-        echo -e "" >> ${HW4_RESULT}
+        # echo "${wordarray[0]}" >> ${HW4_RESULT}
+        # echo -e "\t\tscore: ${TEST_SCORE}" >> ${HW4_RESULT}
+        # echo -e "" >> ${HW4_RESULT}
     done
 done

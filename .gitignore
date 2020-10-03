@@ -1,7 +1,10 @@
-hw3.zip
+hw2_solution_scripts
 hw3_solution_scripts
 hw4_solution_scripts
-hw2_solution_scripts
+error_folder
+hw_results
+create_gitignore.sh
+rm_result.sh
 student_github.txt
-*Homeowork*
-.DS_Store
+test.sh
+hw3.zip
