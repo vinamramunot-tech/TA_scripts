@@ -24,6 +24,7 @@ do
             else
                 echo ${wordarray[0]} >> ${CLONE_ERR}
             fi
+            sleep 1s
         fi
     done 
 done < "$GITHUB_USERNAME_LIST"

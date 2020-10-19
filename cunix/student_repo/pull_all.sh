@@ -2,21 +2,15 @@
 
 GITHUB_USERNAME_LIST="student_github.txt"
 COURSE_NAME="CS232"
-PULL_ERR="pull_err.txt"
+PULL_ERR="error_folder/pull_err.txt"
 
 function createPullError(){
-    if [ -f "$PULL_ERR" ]
-    then
-        rm -f "$PULL_ERR"
-        touch "$PULL_ERR"
-    else
-        touch "$PULL_ERR"
-    fi
+    if [ -f $1 ]; then rm -f $1 touch $1; else touch $1; fi
 }
 
-createPullError
+createPullError ${PULL_ERR}
 
-cat "$GITHUB_USERNAME_LIST" | while read line 
+while read line 
 do
     echo $line | while read -a wordarray
     do
@@ -24,13 +18,13 @@ do
         then
             cd "${wordarray[0]}_Homework_${COURSE_NAME}"
             git config --local credential.helper store
-            git pull 1> /dev/null 2>&1
+            git pull -q origin master
             cd ..
         else
             echo "${wordarray[0]}_Homework_${COURSE_NAME}" >> ${PULL_ERR}
         fi
-    done 
-done
+    done
+done < "$GITHUB_USERNAME_LIST"
 
 
 
