@@ -9,23 +9,18 @@ PYTHON_SCRIPTS="getLinks.py"
 RESULT_FILE="results.txt"
 EXECUTABLE="crawler"
 TEST_SCORE=0
+MEMORY_LEAK=0
 
 function createProject1ResultFile(){
     if [ -f $1 ]; then rm -f $1 touch $1; else touch $1; fi
 }
 
 function copyProjectTestFiles(){
-    cp ../../../project1/$1 . 
-    cp ../../../project1/$2 . 
-    cp ../../../project1/$3 .
+    cp ../../../project1/$1 . && cp ../../../project1/$2 . && cp ../../../project1/$3 .
 }
 
 function rmTestFiles(){
-    rm $1 
-    rm $2 
-    rm $3
-    rm $4
-    rm $5
+    rm $1 && rm $2 && rm $3 && rm $4 && rm $5
 }
 
 createProject1ResultFile $PROJ_RESULT
@@ -49,14 +44,21 @@ do
                     then
                         $(( TEST_SCORE = 1 ))
                     fi
+
+                    valgrind -q --leak-check=yes --error-exitcode=7 ./crawler "https://users.pfw.edu/chenz/testweb/page_000001.html" 10 899 > /dev/null
+                    if [ $? == 7 ]
+                    then
+                        $(( MEMORY_LEAK = 1 ))
+                    fi
                 fi
                 rm ${TEST_SCRIPT} ${EXPECTED_RESULT} ${PYTHON_SCRIPTS} ${EXECUTABLE} ${RESULT_FILE}
                 cd ..
             fi
             cd ..
         fi
-        echo "${wordarray[0]}" >> ${PROJ_RESULT}
-        echo -e "\t $TEST_SCORE" >> $PROJ_RESULT
+        echo -n "${wordarray[0]}" >> $PROJ_RESULT
+        echo -e -n "\t $TEST_SCORE" >> $PROJ_RESULT
+        echo -e "\t $MEMORY_LEAK" >> $PROJ_RESULT
         echo "" >> $PROJ_RESULT
     done
 done < "$GITHUB_USERNAME_LIST" 
