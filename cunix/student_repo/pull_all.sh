@@ -8,7 +8,7 @@ function createPullError(){
     if [ -f $1 ]; then rm -f $1 touch $1; else touch $1; fi
 }
 
-createPullError ${PULL_ERR}
+createPullError $PULL_ERR
 
 while read line 
 do
