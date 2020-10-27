@@ -7,9 +7,11 @@ TEST_SCRIPT="runTestCases.sh"
 EXPECTED_RESULT="expected_results.txt"
 PYTHON_SCRIPTS="getLinks.py"
 RESULT_FILE="results.txt"
+OUTPUT="output.txt"
 EXECUTABLE="crawler"
 TEST_SCORE=0
 MEMORY_LEAK=0
+MEMORY_BUFFER=""
 
 function createProject1ResultFile(){
     if [ -f $1 ]; then rm -f $1 touch $1; else touch $1; fi
@@ -23,12 +25,19 @@ function rmTestFiles(){
     rm $1 && rm $2 && rm $3 && rm $4 && rm $5
 }
 
+function initScore(){
+    (( TEST_SCORE = 0 ))
+    (( MEMORY_LEAK = 0 ))
+    (( MEMORY_BUFFER = "" ))
+}
+
 createProject1ResultFile $PROJ_RESULT
 
 while read line 
 do
     echo $line | while read -a wordarray
     do
+        initScore
         if [ -d "${wordarray[0]}_Homework_${COURSE_NAME}" ]
         then
             cd "${wordarray[0]}_Homework_${COURSE_NAME}"
@@ -43,12 +52,16 @@ do
                     if [ $? == 0 ]
                     then
                         $(( TEST_SCORE = 1 ))
+                    else
+                        cat $RESULT_FILE > $OUTPUT
                     fi
 
-                    valgrind -q --leak-check=yes --error-exitcode=7 ./crawler "https://users.pfw.edu/chenz/testweb/page_000001.html" 10 899 > /dev/null
+                    valgrind -q --leak-check=yes --error-exitcode=7 ./crawler "https://users.pfw.edu/chenz/testweb/page_000001.html" 10 899 > $MEMORY_BUFFER
                     if [ $? == 7 ]
                     then
                         $(( MEMORY_LEAK = 1 ))
+                    else
+                        cat $MEMORY_BUFFER >> $OUTPUT
                     fi
                 fi
                 rm ${TEST_SCRIPT} ${EXPECTED_RESULT} ${PYTHON_SCRIPTS} ${EXECUTABLE} ${RESULT_FILE}
