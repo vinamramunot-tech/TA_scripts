@@ -10,13 +10,7 @@ BOARD_THREE=0
 BOARD_FOUR=0
 
 function createHomeworkResult(){
-    if [ -f "$HW3_RESULT" ]
-    then
-        rm -f "$HW3_RESULT"
-        touch "$HW3_RESULT"
-    else
-        touch "$HW3_RESULT"
-    fi
+    if [ -f $1 ]; then rm -f $1 touch $1; else touch $1; fi
 }
 
 function copyExpectedResult(){
@@ -44,7 +38,7 @@ function remove(){
 }
 
 
-createHomeworkResult
+createHomeworkResult $HW3_RESULT
 
 cat "$GITHUB_USERNAME_LIST" | while read line 
 do
