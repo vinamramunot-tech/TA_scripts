@@ -70,7 +70,7 @@ do
         echo -n "${wordarray[0]}" >> $PROJ_RESULT
         echo -e -n "\t $COMPILE_ERROR" >> $PROJ_RESULT
         echo -e -n "\t $TEST" >> $PROJ_RESULT
-        echo -e -n "\t $MEMORY_LEAK" >> $PROJ_RESULT
+        echo -e -n "\t $MEMORY_LEAK" >> $PROJ_RESULT((  ))
         echo "" >> $PROJ_RESULT
     done
 done < "$GITHUB_USERNAME_LIST" 

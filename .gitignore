@@ -6,7 +6,6 @@ hw_results
 create_gitignore.sh
 rm_result.sh
 student_github.txt
-test.sh
 hw3.zip
 *_Homework_*
 repo.txt
