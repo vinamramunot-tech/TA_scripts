@@ -18,7 +18,7 @@ do
         then
             cd "${wordarray[0]}_Homework_${COURSE_NAME}"
             git config --local credential.helper store
-            git pull -q origin master
+            git pull --force -q origin master
             cd ..
         else
             echo "${wordarray[0]}_Homework_${COURSE_NAME}" >> ${PULL_ERR}
