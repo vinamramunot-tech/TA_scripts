@@ -23,18 +23,15 @@ function rmTestFiles(){
 
 createProject2ResultFile $PROJ_RESULT
 
-# while read line 
-# do
-#     echo $line | while read -a wordarray
-#     do
-        # echo "Checking for ${wordarray[0]}...."
-        # if [ -d "${wordarray[0]}_Homework_${COURSE_NAME}" ]
-        if [ -d "Andriamanjaka_Ralambomanarivo_Homework_CS232" ]
+while read line 
+do
+    echo $line | while read -a wordarray
+    do
+        echo "Checking for ${wordarray[0]}...."
+        if [ -d "${wordarray[0]}_Homework_${COURSE_NAME}" ]
         then
-            # echo -n "${wordarray[0]}" >> $PROJ_RESULT
-            echo -n "Andriamanjaka_Ralambomanarivo" >> $PROJ_RESULT
-            # cd "${wordarray[0]}_Homework_${COURSE_NAME}"
-            cd "Andriamanjaka_Ralambomanarivo_Homework_CS232"
+            echo -n "${wordarray[0]}" >> $PROJ_RESULT
+            cd "${wordarray[0]}_Homework_${COURSE_NAME}"
             if [ -d "project2" ]
             then
                 cd project2
@@ -73,10 +70,5 @@ createProject2ResultFile $PROJ_RESULT
             fi
             cd ..
         fi
-        
-        # echo -e -n "\t $COMPILE_ERROR" >> $PROJ_RESULT
-        # echo -e -n "\t $TEST" >> $PROJ_RESULT
-        # echo -e -n "\t $MEMORY_LEAK" >> $PROJ_RESULT((  ))
-        # echo "" >> $PROJ_RESULT
-#     done
-# done < "$GITHUB_USERNAME_LIST" 
+    done
+done < "$GITHUB_USERNAME_LIST" 
