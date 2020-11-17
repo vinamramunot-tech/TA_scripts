@@ -38,19 +38,19 @@ do
                 if [ -f "indexPage.c" ]
                 then
                     copyProjectTestFiles ${TEST_SCRIPT} ${SOLUTION} ${PYTHON_SCRIPT}
-                    gcc -std=gnu99 -o indexPage indexPage.c 1>/dev/null 2>&1
+                    gcc -std=gnu99 -o indexPage indexPage.c -Wall 1>/dev/null 2>&1
                     if [ $? == 0 ]
                     then
                         "./$TEST_SCRIPT" 1> "test_Output.txt" 2> /dev/null
                         if [ $? == 0 ]
                         then
-                            valgrind --leak-check=yes --error-exitcode=7 ./indexPage "https://users.pfw.edu/chenz/testweb/page_000008.html" 1> temp.txt 2> /dev/null
+                            valgrind --leak-check=yes --error-exitcode=7 ./indexPage "https://users.pfw.edu/chenz/testweb/page_000008.html" 1> valgrind.txt 2> /dev/null
                             if [ $? == 7 ]
                             then
                                 echo -e -n "\t leak" >> "../../$PROJ_RESULT"
                                 echo "" >> "../../$PROJ_RESULT"
                             else 
-                                rm temp.txt
+                                rm valgrind.txt
                             fi
                         fi
                         rm $TEST_SCRIPT $SOLUTION $PYTHON_SCRIPT $INDEX_PAGE
