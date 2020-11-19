@@ -70,5 +70,6 @@ do
             fi
             cd ..
         fi
+        echo "" >> "$PROJ_RESULT"
     done
 done < "$GITHUB_USERNAME_LIST" 
