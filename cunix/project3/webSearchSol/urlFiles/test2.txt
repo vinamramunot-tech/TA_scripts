@@ -1,0 +1,3 @@
+https://www.yahoo.com 7
+https://www.cnn.com 8
+https://www.pfw.edu 12

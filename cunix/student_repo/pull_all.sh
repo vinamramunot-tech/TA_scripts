@@ -17,6 +17,7 @@ do
         if [ -d "${wordarray[0]}_Homework_${COURSE_NAME}" ]
         then
             cd "${wordarray[0]}_Homework_${COURSE_NAME}"
+            echo "pulling to ${wordarray[0]}"
             git config --local credential.helper store
             git pull --force -q origin master
             cd ..

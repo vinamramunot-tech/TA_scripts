@@ -1,0 +1,3 @@
+https://users.pfw.edu/chenz/testWeb/page_000003.html 15
+https://users.pfw.edu/chenz/ 15
+https://users.pfw.edu/chenz/testWeb/page_000001.html 20
