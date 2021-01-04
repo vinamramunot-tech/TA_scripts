@@ -8,9 +8,16 @@ namespace SQL_HW
         static void Main(string[] args)
         {
             CommandOptions cmd = new CommandOptions();
+            int inputOptionNumber = 0;
 
-            cmd.showCommands();
-
+            do
+            {
+                cmd.showCommands();
+                Console.Write("\n>>");
+                inputOptionNumber = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
+                cmd.switchAndSelectCommand(inputOptionNumber);           
+            } while (inputOptionNumber != 10);
 
         } 
     }

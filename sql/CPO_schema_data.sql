@@ -9,44 +9,30 @@ CREATE TABLE Customer_T (
 	CustomerName varchar(25) not null,
 	CustomerAddress varchar(30),
 	CustomerCity varchar(20),
-	Customer
+	CustomerState varchar(2),
+	CustomerPostalCode varchar(10),
+	CONSTRAINT Customer_PK PRIMARY KEY (CustomerID),
 );
 
---DROP TABLE OrderLine_T	 	CASCADE CONSTRAINTS ;
---DROP TABLE Product_T 		CASCADE CONSTRAINTS ;
---DROP TABLE Order_T 		CASCADE CONSTRAINTS ;
---DROP TABLE Customer_T 		CASCADE CONSTRAINTS ;
-
-CREATE TABLE Customer_T
-             (CustomerID          NUMBER(11,0)     NOT NULL,
-	        CustomerName        VARCHAR2(25)     NOT NULL,
-	        CustomerAddress     VARCHAR2(30)    ,
-              CustomerCity        VARCHAR2(20)    ,              
-              CustomerState       CHAR(2)         ,
-              CustomerPostalCode  VARCHAR2(10)    ,
-CONSTRAINT Customer_PK PRIMARY KEY (CustomerID));
-
-
-
-CREATE TABLE Order_T
-             (OrderID             NUMBER(11,0)    NOT NULL,
-	         CustomerID          NUMBER(11,0)   ,
-              OrderDate           DATE DEFAULT SYSDATE          ,
+CREATE TABLE Order_T (
+	OrderID decimal(11,0) NOT NULL,
+	CustomerID decimal(11,0),
+	OrderDate DATE,
 CONSTRAINT Order_PK PRIMARY KEY (OrderID),
 CONSTRAINT Order_FK1 FOREIGN KEY (CustomerID) REFERENCES Customer_T(CustomerID));
 
 CREATE TABLE Product_T
-             (ProductID           NUMBER(11,0)    NOT NULL,
-              ProductLineID       NUMBER(11,0)   ,
-              ProductDescription  VARCHAR2(50)    ,
-              ProductFinish       VARCHAR2(20)    ,
-              ProductStandardPrice DECIMAL(6,2)   ,
+             (ProductID decimal(11,0) not null,
+              ProductLineID decimal(11,0),
+              ProductDescription varchar(50),
+              ProductFinish varchar(20),
+              ProductStandardPrice DECIMAL(6,2),
 CONSTRAINT Product_PK PRIMARY KEY (ProductID));
 
 CREATE TABLE OrderLine_T
-	      (OrderID            NUMBER(11,0)   NOT NULL,
-              ProductID           NUMBER(11,0)   NOT NULL,
-              OrderedQuantity     NUMBER(11,0)  ,
+	      (OrderID            decimal(11,0)   NOT NULL,
+              ProductID           decimal(11,0)   NOT NULL,
+              OrderedQuantity     decimal(11,0)  ,
 CONSTRAINT OrderLine_PK PRIMARY KEY (OrderID, ProductID),
 CONSTRAINT OrderLine_FK1 FOREIGN KEY (OrderID) REFERENCES Order_T(OrderID),
 CONSTRAINT OrderLine_FK2 FOREIGN KEY (ProductID) REFERENCES Product_T(ProductID));
@@ -87,30 +73,30 @@ VALUES  (15, 'Mountain Scenes', '4132 Main Street', 'Ogden', 'UT', '84403-4432')
 
 
 INSERT INTO Order_T  (OrderID, OrderDate, CustomerID)
-VALUES  (1001, '21/Oct/10', 1);
+VALUES  (1001, '2010-10-21', 1);
 INSERT INTO Order_T  (OrderID, OrderDate, CustomerID)
-VALUES  (1002, '21/Oct/10', 8);
+VALUES  (1002, '2010-10-21', 8);
 INSERT INTO Order_T  (OrderID, OrderDate, CustomerID)
-VALUES  (1003, '22/Oct/10', 15);
+VALUES  (1003, '2010-10-22', 15);
 INSERT INTO Order_T  (OrderID, OrderDate, CustomerID)
-VALUES  (1004, '22/Oct/10', 5);
+VALUES  (1004, '2010-10-22', 5);
 INSERT INTO Order_T  (OrderID, OrderDate, CustomerID)
-VALUES  (1005, '24/Oct/10', 3);
+VALUES  (1005, '2010-10-24', 3);
 INSERT INTO Order_T  (OrderID, OrderDate, CustomerID)
-VALUES  (1006, '24/Oct/10', 2);
+VALUES  (1006, '2010-10-24', 2);
 INSERT INTO Order_T  (OrderID, OrderDate, CustomerID)
-VALUES  (1007, '27/Oct/10', 11);
+VALUES  (1007, '2010-10-27', 11);
 INSERT INTO Order_T  (OrderID, OrderDate, CustomerID)
-VALUES  (1008, '30/Oct/10', 12);
+VALUES  (1008, '2010-10-30', 12);
 INSERT INTO Order_T  (OrderID, OrderDate, CustomerID)
-VALUES  (1009, '05/Nov/10', 4);
+VALUES  (1009, '2010-11-05', 4);
 INSERT INTO Order_T  (OrderID, OrderDate, CustomerID)
-VALUES  (1010, '05/Nov/10', 1);
+VALUES  (1010, '2010-11-05', 1);
 
 INSERT INTO Order_T  (OrderID, OrderDate, CustomerID)
-VALUES  (1011, '05/Dec/10', 1);
+VALUES  (1011, '2010-12-05', 1);
 INSERT INTO Order_T  (OrderID, OrderDate, CustomerID)
-VALUES  (1012, '22/Dec/10', 15);
+VALUES  (1012, '2010-12-22', 15);
 
 INSERT INTO Product_T  (ProductID, ProductDescription, ProductFinish, ProductStandardPrice, ProductLineID)
 VALUES  (1, 'End Table', 'Cherry', 175, 1);
@@ -172,5 +158,3 @@ INSERT INTO OrderLine_T  (OrderID, ProductID, OrderedQuantity)
 VALUES  (1011, 8, 5);
 INSERT INTO OrderLine_T  (OrderID, ProductID, OrderedQuantity)
 VALUES  (1012, 3, 5);
-
-COMMIT;
