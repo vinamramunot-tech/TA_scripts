@@ -7,6 +7,5 @@ namespace SQL_HW.Data
     class Create
     {
 
-        public void 
     }
 }

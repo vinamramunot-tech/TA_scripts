@@ -7,6 +7,5 @@ namespace SQL_HW.Services
     class DatabaseConnection
     {
 
-
     }
 }

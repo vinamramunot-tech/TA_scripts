@@ -1,21 +1,25 @@
 ﻿using System;
 using SQL_HW.Data;
+using System.Data.SqlClient;
 
 namespace SQL_HW.Services
 {
     public class CommandOptions
     {
+        public string databaseConnectionString = "";
+        Create createDB;
+        Read readDB;
+        Update updateDB;
+        Delete deleteDB;
 
-        Create createDB = new Create();
-        Read readDB = new Read();
-        Update updateDB = new Update();
-        Delete deleteDB = new Delete();
-
-        public CommandOptions()
+        public CommandOptions(string _databaseConnectionString)
         {
-
+            databaseConnectionString = _databaseConnectionString;
+            createDB = new Create();
+            readDB = new Read(databaseConnectionString);
+            updateDB = new Update();
+            deleteDB = new Delete();
         }
-
         public void showCommands()
         {
             string[] menuStrings = { "1) Query the order frequency of products",
@@ -40,10 +44,10 @@ namespace SQL_HW.Services
             switch (_input)
             {
                 case 1:
-                    Console.WriteLine("This is 1!");
+                    readDB.showOrderFrequency();
                     break;
                 case 2:
-                    Console.WriteLine("This is 2!");
+                    readDB.showCustomerInfo();
                     break;
                 case 3:
                     Console.WriteLine("This is 3!");
