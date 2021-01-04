@@ -1,4 +1,5 @@
 ﻿using System;
+using SQL_HW.Services;
 
 namespace SQL_HW
 {
@@ -6,9 +7,11 @@ namespace SQL_HW
     {
         static void Main(string[] args)
         {
+            CommandOptions cmd = new CommandOptions();
+
+            cmd.showCommands();
 
 
-            Console.WriteLine("");
         } 
     }
 }
