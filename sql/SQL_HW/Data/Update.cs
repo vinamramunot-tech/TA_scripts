@@ -6,5 +6,6 @@ namespace SQL_HW.Data
 {
     class Update
     {
+
     }
 }

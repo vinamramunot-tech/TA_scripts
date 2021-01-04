@@ -44,19 +44,19 @@ namespace SQL_HW.Services
             switch (_input)
             {
                 case 1:
-                    readDB.showOrderFrequency();
+                    readDB.queryOrderFrequency();
                     break;
                 case 2:
-                    readDB.showCustomerInfo();
+                    readDB.queryCustomerInfo();
                     break;
                 case 3:
-                    Console.WriteLine("This is 3!");
+                    readDB.queryCustomerOrderInfo();
                     break;
                 case 4:
-                    Console.WriteLine("This is 4!");
+                    readDB.queryOrderItems();
                     break;
                 case 5:
-                    Console.WriteLine("This is 5!");
+                    readDB.queryAllProducts();
                     break;
                 case 6:
                     Console.WriteLine("This is 6!");
