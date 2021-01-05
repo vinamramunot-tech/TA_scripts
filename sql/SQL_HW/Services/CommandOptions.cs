@@ -15,7 +15,7 @@ namespace SQL_HW.Services
         public CommandOptions(string _databaseConnectionString)
         {
             databaseConnectionString = _databaseConnectionString;
-            createDB = new Create();
+            createDB = new Create(databaseConnectionString);
             readDB = new Read(databaseConnectionString);
             updateDB = new Update();
             deleteDB = new Delete();
@@ -59,16 +59,16 @@ namespace SQL_HW.Services
                     readDB.queryAllProducts();
                     break;
                 case 6:
-                    Console.WriteLine("This is 6!");
+                    createDB.insertProduct();
                     break;
                 case 7:
-                    Console.WriteLine("This is 7!");
+                    updateDB.updateProductPrice();
                     break;
                 case 8:
-                    Console.WriteLine("This is 8!");
+                    deleteDB.deleteProduct();
                     break;
                 case 9:
-                    Console.WriteLine("This is 9!");
+                    
                     break;
                 case 10:
                     Console.WriteLine("This is 10!");
