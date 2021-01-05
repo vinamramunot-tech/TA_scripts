@@ -8,16 +8,17 @@
 > Created a ```.sh``` script to automate the process.
 
 ### C++
-#### Running the script
 
-```bash
-$ git clone https://github.com/vinamramunot-tech/TA_scripts.git
-$ cd TA_scripts
-$ vim student_list.txt (to edit list)
-$ chmod +x makingFiles.sh (to give permission for execution)
-```
+> still under construction
 
 ### C and Unix
+
+> still under construction
+
+### TSQL & C# (.Net Core Console App)
+
+> still under construction
+
 #### Running the scripts
 
 # Cleaning Ignored Files
