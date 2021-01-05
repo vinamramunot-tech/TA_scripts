@@ -5,7 +5,7 @@
 
 ## Shell scripting
 
-> Created a ```.sh``` script to automate the process.
+Created a ```.sh``` script to automate the process.
 
 ### C++
 
