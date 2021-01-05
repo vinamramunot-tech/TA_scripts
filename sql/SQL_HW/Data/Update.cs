@@ -62,8 +62,6 @@ namespace SQL_HW.Data
             {
                 Console.WriteLine("Exception: " + ex.Message);
             }
-
-
         }
     }
 }
