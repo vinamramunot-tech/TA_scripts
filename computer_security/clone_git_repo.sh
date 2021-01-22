@@ -20,7 +20,7 @@ do
             git clone ${wordarray[1]} --quiet
             if [ $? == 0 ]
             then
-                mv "Homework_${COURSE_NAME}" "${wordarray[0]}_Homework_${COURSE_NAME}"
+                mv "${wordarray[2]}" "${wordarray[0]}_Homework_${COURSE_NAME}"
             else
                 echo ${wordarray[0]} >> ${CLONE_ERR}
             fi
