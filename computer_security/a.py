@@ -4,11 +4,17 @@ lines = f.readlines()
 data = []
 
 for line in lines:
-    name, gitlink = line.split()
+    name, gitlink, _ = line.split()
     
     last_name, first_name = name.split('_')
     full_name = f'{first_name}_{last_name}'
-    new_line = f'{full_name} {gitlink}'
+
+    last_slash = gitlink.rfind('/')+1
+    last_dot = gitlink.rfind('.')
+
+    folder_name= gitlink[last_slash:last_dot]
+    
+    new_line = f'{full_name} {gitlink} {folder_name}'
     data.append(new_line)
 
 f.close()
