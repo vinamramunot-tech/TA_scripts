@@ -1,5 +1,5 @@
-Achenbach_Sarah https://github.com/achesm01/CS445-course-projects.git             
-Barrow_Zachary https://github.com/ZacharyBarrow/barrzk01_CS445.git             
+Achenbach_Sarah https://github.com/achesm01/CS445-course-projects.git
+Barrow_Zachary https://github.com/ZacharyBarrow/barrzk01_CS445.git
 Bradt_Connor https://github.com/bradcj05/CS445-Computer-Security.git             
 Cuney_Connor https://github.com/connorcuney/cs445.git             
 Daeger_Noah https://github.com/NJDaeger/CS445Lab1.git             
