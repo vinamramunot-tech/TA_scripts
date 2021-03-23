@@ -1,8 +1,0 @@
-Enter the stage 1 password: Stage 1 defused.
-Enter the stage 2 password: Stage 2 defused.
-Enter the stage 3 password: Stage 3 defused.
-Enter the stage 4 password: Stage 4 defused.
-Enter the stage 5 password: Stage 5 defused.
-Enter the stage 6 password: Stage 6 defused.
-Enter the stage 7 password: Stage 7 defused.
-The entire bomb has been defused.

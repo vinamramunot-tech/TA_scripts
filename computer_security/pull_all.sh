@@ -14,13 +14,16 @@ while read line
 do
     echo $line | while read -a wordarray
     do
-        if [ -d "${wordarray[0]}_Homework_${COURSE_NAME}" ]
+        if [ -d "student_repo/${wordarray[0]}_Homework_${COURSE_NAME}" ]
         then
-            cd "${wordarray[0]}_Homework_${COURSE_NAME}"
+            cd "student_repo/${wordarray[0]}_Homework_${COURSE_NAME}"
             echo "pulling to ${wordarray[0]}"
-            git config --local credential.helper store
-            git pull --force -q origin master
-            cd ..
+            git pull --force -q
+            if [ $? != 0 ] 
+            then
+                echo "../../${wordarray[0]}_Homework_${COURSE_NAME}" >> ${PULL_ERR}
+            fi 
+            cd ../..
         else
             echo "${wordarray[0]}_Homework_${COURSE_NAME}" >> ${PULL_ERR}
         fi
